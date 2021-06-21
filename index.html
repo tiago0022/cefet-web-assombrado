@@ -28,18 +28,21 @@
     <!-- OBS: não remova a class="desaparecido" porque ela está sendo usada pra
          esconder este elemento até o vídeo acabar (tem uma regra CSS para
          ocultar quem tem .desaparecido)-->
-    <main id="conteudo-principal" class="desaparecido">
+    <main class="desaparecido">
         <!-- opa, <section> já é um elemento semântico. Dica: podemos
            dividir a página em 3 seções, e esta é uma delas -->
         <aside>
             <h1>Nuvem de <em>tags</em></h1>
-            <mark class="tag-3">UFO</mark>
-            <mark>OVNI</mark>
-            <mark class="tag-2">Avistamentos</mark>
-            <mark>Contato de primeiro grau</mark>
-            <mark class="tag-2">Assombrações</mark>
-            <mark class="tag-3">Local mal-assombrado</mark>
-            <mark>Saci</mark>
+            <!-- Aqui entendo que não faz sentido usar o elemento "mark" pois as tags não são 
+                elementos dentro de um texto e que foram marcados/destacados, e sim elementos
+                clicáveis, são tags que não estão em um texto -->
+            <span class="tag tag-3">UFO</span>
+            <span class="tag">OVNI</span>
+            <span class="tag tag-2">Avistamentos</span>
+            <span class="tag">Contato de primeiro grau</span>
+            <span class="tag tag-2">Assombrações</span>
+            <span class="tag tag-3">Local mal-assombrado</span>
+            <span class="tag">Saci</span>
         </aside>
 
         <section id="posts-principais">
@@ -90,6 +93,11 @@
                 </h2>
             </article>
         </section>
+
+        <img class="boo boo-1" src="imgs/boo1.gif">
+        <img class="boo boo-2" src="imgs/boo2.gif">
+        <img class="boo boo-3" src="imgs/boo3.gif">
+
     </main>
 
     <footer>
@@ -101,6 +109,22 @@
                 <a href="http://assombrado.com.br" target="_blank">AssombradO.com.br</a>
             </p>
             <div id="inscreva-se">
+                <h3>Inscreva-se!</h3>
+                <label>
+                    Email:
+                    <input id="email" type="email">
+                </label>
+                <label>
+                    Nome:
+                    <input id="nome" type="email">
+                </label>
+                <label>
+                    <input id="aceita-promocoes" type="checkbox">
+                    Aceito promoções
+                </label>
+                <button id="inscrever">
+                    Inscrever
+                </button>
             </div>
         </div>
     </footer>
@@ -120,7 +144,7 @@
             // faz o vídeo desaparecer colocando a classe .desaparecido
             document.querySelector('.backdrop').classList.add('desaparecido');
             // faz o conteúdo principal surgir, retirando a classe .desaparecido
-            document.querySelector('#conteudo-principal').classList.remove('desaparecido');
+            document.querySelector('main').classList.remove('desaparecido');
         }, TEMPO);
 
 
@@ -130,6 +154,9 @@
             e.currentTarget.classList.add('desaparecido');
         });
     </script>
+
+    <script src="boos.js"></script>
+
 </body>
 
 </html>
